@@ -11,4 +11,5 @@ https://github.com/Tony607/Keras_age_gender/releases/download/V1.0/weights.18-4.
 
 Below is actual demo :
 
-<img src="https://gyazo.com/5fdca329a4212a65c6d8be5466735942" />
+<!-- <img src="https://drive.google.com/open?id=1FcXMIqDKR7ihmi-bC5a5QICnJwOtb8rx" /> -->
+<iframe src="https://giphy.com/embed/9Pk1IBARUmUOwNXyL4" width="480" height="372" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9Pk1IBARUmUOwNXyL4">via GIPHY</a></p>
