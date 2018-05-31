@@ -11,4 +11,4 @@ https://github.com/Tony607/Keras_age_gender/releases/download/V1.0/weights.18-4.
 
 Below is actual demo :
 
-https://gyazo.com/5fdca329a4212a65c6d8be5466735942
+<img src="https://gyazo.com/5fdca329a4212a65c6d8be5466735942" />
