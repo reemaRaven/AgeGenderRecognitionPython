@@ -1,6 +1,7 @@
-"""
-Face detection
-"""
+"""""""""""""""""""""""""""
+Gender and age recognition
+"""""""""""""""""""""""""""
+
 import cv2
 import os
 from time import sleep
@@ -8,14 +9,20 @@ import numpy as np
 import argparse
 from wide_resnet import WideResNet
 from keras.utils.data_utils import get_file
+from datetime import date
+from datetime import time
+from datetime import datetime
+#reema
+import parser as parse_results
 
 class FaceCV(object):
     """
     Singleton class for face recongnition task
     """
-    CASE_PATH = ".\\pretrained_models\\haarcascade_frontalface_alt.xml"
-    #WRN_WEIGHTS_PATH = "https://github.com/Tony607/Keras_age_gender/releases/download/V1.0/weights.18-4.06.hdf5"
-    WRN_WEIGHTS_PATH = ".\\weights.18-4.06\\weights.18-4.06.hdf5"
+    CASE_PATH = "/home/pi/age_gender/pretrained_models/haarcascade_frontalface_alt.xml"
+	#CASE_PATH = ".\\pretrained_models\\haarcascade_frontalface_alt.xml"
+    #WRN_WEIGHTS_PATH = ".\\weights.18-4.06\\weights.18-4.06.hdf5"
+	WRN_WEIGHTS_PATH = "/home/pi/age_gender/weights.18-4.06/weights.18-4.06.hdf5"
 
 
     def __new__(cls, weight_file=None, depth=16, width=8, face_size=64):
@@ -106,12 +113,27 @@ class FaceCV(object):
                 predicted_genders = results[0]
                 ages = np.arange(0, 101).reshape(101, 1)
                 predicted_ages = results[1].dot(ages).flatten()
+
+            # create output file : using append mode instead of write.
+            file = open(".\\output\\result.txt","a")
             # draw results
             for i, face in enumerate(faces):
                 label = "{}, {}".format(int(predicted_ages[i]),
                                         "F" if predicted_genders[i][0] > 0.5 else "M")
                 self.draw_label(frame, (face[0], face[1]), label)
+                
+                # write result to the file
+                file.write(label)
+                file.write(", person %d" % i)
+                file.write(", date : %s" % datetime.date(datetime.now()))
+                file.write(", time : %s" % datetime.time(datetime.now()))
+                file.write("\n")
 
+            file.close()
+
+            #parse results : reema
+            parse_results.parse_results_in_file()
+            
             cv2.imshow('Keras Faces', frame)
             if cv2.waitKey(5) == 27:  # ESC key press
                 break
@@ -140,6 +162,6 @@ def main():
     face = FaceCV(depth=depth, width=width)
 
     face.detect_face()
-
+    
 if __name__ == "__main__":
     main()
