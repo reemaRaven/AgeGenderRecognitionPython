@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1_t6_T3bo-cLHemX7ZQ6yxF6lfDrKDNvw/view?usp=shari
 1. Run the main file : "python realtime_demo.py"
 2. Below is actual demo :
 
-<img src="https://media.giphy.com/media/9Pk1IBARUmUOwNXyL4/giphy.gif" />
+https://drive.google.com/file/d/13albCqk1Rm2nagHeMMVx38F2NjW0Zibh/view?usp=sharing
 
 # Description of project
 1. Photo per second is taken from the webcam stream live by the cv2 module.
